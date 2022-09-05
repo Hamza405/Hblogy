@@ -1,12 +1,14 @@
 import TopBar from "./components/TopBar/TopBar";
-import HomePage from "./pages/HomePage/HomePage";
-function App() {
+// import HomePage from "./pages/HomePage/HomePage";
+import SinglePostPage from "./pages/SinglePostPage/SinglePostPage";
+
+const App = () => {
   return (
     <>
       <TopBar />
-      <HomePage />
+      <SinglePostPage />
     </>
   );
-}
+};
 
 export default App;
