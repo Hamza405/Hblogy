@@ -1,10 +1,10 @@
 import style from "./SideBar.module.css";
+import SideBarItem from "./SideBarItem/SideBarItem";
 
 const SideBar = () => {
   return (
     <div className={style.sideBar}>
-      <div className={style.sideBarItem}>
-        <span className={style.title}>About me</span>
+      <SideBarItem title="about me">
         <img
           alt="ABOUT ME"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW73V4EqTE35_guM_QU9WJMVHKqwH6sCK3xPUPTk6IdA&s"
@@ -14,28 +14,26 @@ const SideBar = () => {
           blanditiis deserunt beatae cum! Distinctio, consectetur deleniti
           corporis, soluta aliquam facilis.
         </p>
-      </div>
-      <div className={style.sideBarItem}>
-        <span className={style.title}>Categories</span>
+      </SideBarItem>
+      <SideBarItem title="categories">
         <ul className={style.catList}>
-          <li className={style.catItem}>Life</li>
-          <li className={style.catItem}>Music</li>
-          <li className={style.catItem}>Sport</li>
-          <li className={style.catItem}>Sex</li>
-          <li className={style.catItem}>Tech</li>
-          <li className={style.catItem}>Farms</li>
-          <li className={style.catItem}>phons</li>
+          <li className={style.catListItem}>Life</li>
+          <li className={style.catListItem}>Music</li>
+          <li className={style.catListItem}>Sport</li>
+          <li className={style.catListItem}>Sex</li>
+          <li className={style.catListItem}>Tech</li>
+          <li className={style.catListItem}>Farms</li>
+          <li className={style.catListItem}>phons</li>
         </ul>
-      </div>
-      <div className={style.sideBarItem}>
-        <span className={style.title}>Follow US</span>
-        <div className={style.topLeft}>
-          <i className={`${style.sidebarIcon} fab fa-facebook-square`}></i>
-          <i className={`${style.sidebarIcon} fab fa-instagram-square`}></i>
-          <i className={`${style.sidebarIcon} fab fa-github-square`}></i>
-          <i className={`${style.sidebarIcon} fab fa-twitter-square`}></i>
+      </SideBarItem>
+      <SideBarItem title="Follow us">
+        <div className={style.socialList}>
+          <i className={`${style.socialIcon} fab fa-facebook-square`}></i>
+          <i className={`${style.socialIcon} fab fa-instagram-square`}></i>
+          <i className={`${style.socialIcon} fab fa-github-square`}></i>
+          <i className={`${style.socialIcon} fab fa-twitter-square`}></i>
         </div>
-      </div>
+      </SideBarItem>
     </div>
   );
 };

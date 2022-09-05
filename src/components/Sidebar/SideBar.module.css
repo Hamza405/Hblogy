@@ -1,3 +1,32 @@
-.sideBar{
-    flex: 3;
+.sideBar {
+  flex: 3;
+  background-color: #fdfbfb;
+  margin: 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.catList {
+  list-style: none;
+  margin-bottom: 3rem;
+}
+
+.catListItem {
+  display: inline-block;
+  width: 50%;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.socialList {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 25rem;
+  margin-top: 1rem;
+}
+.socialIcon {
+  font-size: 1.9rem;
 }
