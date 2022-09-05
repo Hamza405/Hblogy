@@ -1,39 +1,10 @@
 import TopBar from "./components/TopBar/TopBar";
-
+import HomePage from "./pages/HomePage/HomePage";
 function App() {
   return (
     <>
       <TopBar />
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>v<p>asd</p>v<p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>v<p>asd</p>v<p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>
-      <p>asd</p>v<p>asd</p>v<p>asd</p>
+      <HomePage />
     </>
   );
 }
