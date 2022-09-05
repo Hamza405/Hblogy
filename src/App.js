@@ -1,7 +1,41 @@
-import "./App.css";
+import TopBar from "./components/TopBar/TopBar";
 
 function App() {
-  return <div className="App">Blog</div>;
+  return (
+    <>
+      <TopBar />
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>v<p>asd</p>v<p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>v<p>asd</p>v<p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>
+      <p>asd</p>v<p>asd</p>v<p>asd</p>
+    </>
+  );
 }
 
 export default App;
