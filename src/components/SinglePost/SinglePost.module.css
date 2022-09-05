@@ -1,3 +1,59 @@
 .post {
   flex: 9;
 }
+
+.wrapper {
+  padding: 3rem;
+}
+
+.img {
+  width: 100%;
+  height: 30rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+  margin: 1rem;
+  font-family: "Lora";
+  font-size: 3rem;
+}
+
+.edit {
+  float: right;
+  font-size: 1.6rem;
+}
+
+.editIcon {
+  margin-left: 1.2rem;
+  cursor: pointer;
+}
+
+.editIcon:first-child {
+  color: teal;
+}
+
+.editIcon:last-child {
+  color: tomato;
+}
+
+.info {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  font-family: "Varela Round";
+  color: #b39656;
+}
+
+.description {
+  color: #666;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.description::first-letter {
+  font-size: 3rem;
+  font-weight: 600;
+}

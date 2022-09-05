@@ -21,7 +21,7 @@ const SinglePost = () => {
           </span>
           <span className={style.infoDate}>1 Hour ago</span>
         </div>
-        <p>
+        <p className={style.description}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos facilis
           unde sed praesentium qui cum iusto illum consequatur assumenda quod
           commodi nam totam perferendis, quidem debitis fuga eum quibusdam
