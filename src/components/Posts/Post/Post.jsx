@@ -15,6 +15,18 @@ const Post = () => {
         <div className={style.postTitle}>Lorem, ipsum dolor sit amet.</div>
         <hr />
         <span className={style.postDate}>1 Hour ago.</span>
+        <p className={style.postDes}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quasi
+          illum consequuntur nulla reprehenderit doloribus odit voluptatem
+          molestiae. Modi veniam tenetur enim fugit reprehenderit? Officia eos
+          minus eius ex dolor? Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Aliquam quasi illum consequuntur nulla reprehenderit
+          doloribus odit voluptatem molestiae. Modi veniam tenetur enim fugit
+          reprehenderit? Officia eos minus eius ex dolor? Lorem ipsum dolor sit
+          amet consectetur adipisicing elit. Aliquam quasi illum consequuntur
+          nulla reprehenderit doloribus odit voluptatem molestiae. Modi veniam
+          tenetur enim fugit reprehenderit? Officia eos minus eius ex dolor?
+        </p>
       </div>
     </div>
   );
