@@ -7,7 +7,7 @@ const Header = () => {
           <span className={style.titleSm}>React & Node</span>
           <span className={style.titleLg}>HBlogy</span>
         </div>
-        <img className={style.img} src="https://images.pexels.com/photos/730256/pexels-photo-730256.jpeg?auto=compress&cs=tinysrgb&w=600" />
+        <img className={style.img} src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
     </div>
   )
 }
