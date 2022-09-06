@@ -1,0 +1,55 @@
+.settings {
+  flex: 9;
+  padding: 5rem;
+}
+
+.settingsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.updateTitle {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  color: lightcoral;
+}
+
+.deleteTitle {
+  font-size: 1.5rem;
+  color: red;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.profilePicture {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.profilePicture > img {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+.profilePictureIcon {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+  background-color: lightcoral;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2rem;
+  cursor: pointer;
+  border-radius: 100%;
+}
