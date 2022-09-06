@@ -15,7 +15,7 @@ const LoginLayout = () => {
         />
         <button className={style.button}>Login</button>
       </form>
-      <button className={style.sbutton}>Register Now</button>
+      <button className={style.SButton}>Register Now</button>
     </div>
   );
 };

@@ -3,13 +3,14 @@ import TopBar from "./components/TopBar/TopBar";
 // import SinglePostPage from "./pages/SinglePostPage/SinglePostPage";
 // import WritePage from "./pages/WritePage/WritePage";
 // import SettingsPage from "./pages/SettingsPage/SettingsPage";
-import LoginPage from "./pages/Auth/LoginPage";
+// import LoginPage from "./pages/Auth/LoginPage";
+import SignupPage from "./pages/Auth/SignupPage";
 
 const App = () => {
   return (
     <>
       <TopBar />
-      <LoginPage />
+      <SignupPage />
     </>
   );
 };

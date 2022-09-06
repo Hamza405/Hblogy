@@ -1,0 +1,53 @@
+.signUp {
+  height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Ym9va3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+}
+
+.title {
+  font-size: 3rem;
+  float: left;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form > label {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+.form > input {
+  padding: 1rem;
+  border: none;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.button {
+  margin: 2rem 0;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  background-color: teal;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+}
+
+.LButton {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  background-color: lightcoral;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+}

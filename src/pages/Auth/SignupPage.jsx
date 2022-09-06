@@ -1,7 +1,7 @@
-import React from "react";
+import SignUpLayout from "../../components/Auth/Signup/SignUpLayout";
 
 const SignupPage = () => {
-  return <div>SignupPage</div>;
+  return <SignUpLayout />;
 };
 
 export default SignupPage;
