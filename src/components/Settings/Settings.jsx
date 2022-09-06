@@ -26,7 +26,7 @@ const Settings = () => {
         <input type="email" placeholder="hamzash863@gmail.com" />
         <label>Password</label>
         <input type="Password" />
-        <button className="submit">Update</button>
+        <button className={style.submit}>Update</button>
       </form>
     </div>
   );
