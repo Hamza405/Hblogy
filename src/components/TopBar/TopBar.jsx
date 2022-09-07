@@ -1,6 +1,8 @@
-import style from "./TopBar.module.css"
+import { Link } from "react-router-dom";
+import style from "./TopBar.module.css";
 
-const TopBar= () => {
+const TopBar = () => {
+  const user = false;
   return (
     <div className={style.topBar}>
       <div className={style.topLeft}>
@@ -11,19 +13,57 @@ const TopBar= () => {
       </div>
       <div className={style.topCenter}>
         <ul className={style.topList}>
-          <li className={style.topListItem}>Home</li>
-          <li className={style.topListItem}>ABOUT</li>
-          <li className={style.topListItem}>Contact</li>
-          <li className={style.topListItem}>Write</li>
-          <li className={style.topListItem}>Logout</li>
+          <li className={style.topListItem}>
+            <Link to="/" className="link">
+              Home
+            </Link>
+          </li>
+          <li className={style.topListItem}>
+            <Link to="/" className="link">
+              About
+            </Link>
+          </li>
+          <li className={style.topListItem}>
+            <Link to="/" className="link">
+              Contact
+            </Link>
+          </li>
+          <li className={style.topListItem}>
+            <Link to="/write" className="link">
+              Write
+            </Link>
+          </li>
+          <li className={style.topListItem}>{user && "LOGOUT"}</li>
         </ul>
       </div>
       <div className={style.topRight}>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW73V4EqTE35_guM_QU9WJMVHKqwH6sCK3xPUPTk6IdA&s" alt="image" className={style.topImage} />
+        {user ? (
+          <Link className="link" to="settings">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW73V4EqTE35_guM_QU9WJMVHKqwH6sCK3xPUPTk6IdA&s"
+              alt="image"
+              className={style.topImage}
+            />
+          </Link>
+        ) : (
+          <ul className={style.topList}>
+            <li className={style.topListItem}>
+              <Link to="/login" className="link">
+                LOGIN
+              </Link>
+            </li>
+            <li className={style.topListItem}>
+              <Link to="/signup" className="link">
+                SIGNUP
+              </Link>
+            </li>
+          </ul>
+        )}
+
         <i className={`${style.topSearchIcon} fas fa-search`} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TopBar
+export default TopBar;

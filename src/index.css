@@ -7,3 +7,8 @@ body {
   line-height: 1.7;
   box-sizing: border-box;
 }
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}

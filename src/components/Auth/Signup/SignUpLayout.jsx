@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./SignUpLayout.module.css";
 
 const SignUpLayout = () => {
@@ -17,7 +18,11 @@ const SignUpLayout = () => {
         />
         <button className={style.button}>SignUp</button>
       </form>
-      <button className={style.LButton}>Login</button>
+      <button className={style.LButton}>
+        <Link className="link" to="/login">
+          Login
+        </Link>
+      </button>
     </div>
   );
 };

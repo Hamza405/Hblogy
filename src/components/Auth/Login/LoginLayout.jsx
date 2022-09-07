@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./LoginLayout.module.css";
 
 const LoginLayout = () => {
@@ -15,7 +16,11 @@ const LoginLayout = () => {
         />
         <button className={style.button}>Login</button>
       </form>
-      <button className={style.SButton}>Register Now</button>
+      <button className={style.SButton}>
+        <Link className="link" to="/signup">
+          Register Now
+        </Link>
+      </button>
     </div>
   );
 };
