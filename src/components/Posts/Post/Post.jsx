@@ -5,13 +5,14 @@ const Post = ({ post }) => {
   return (
     <div className={style.post}>
       <img
+        alt="s"
         className={style.img}
         src="https://images.pexels.com/photos/1643773/pexels-photo-1643773.jpeg?auto=compress&cs=tinysrgb&w=600"
       />
       <div className={style.info}>
         <div className={style.postCat}>
           {post.categories.map((cat) => (
-            <span>{cat}</span>
+            <span key={cat}>{cat}</span>
           ))}
         </div>
         <Link className="link" to={`/post/${post._id}`}>

@@ -5,7 +5,7 @@ const Posts = ({ posts }) => {
   return (
     <div className={style.posts}>
       {posts.map((post) => (
-        <Post post={post} />
+        <Post key={post._id} post={post} />
       ))}
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import style from "./SinglePost.module.css";
 
@@ -19,6 +19,7 @@ const SinglePost = () => {
     <div className={style.post}>
       <div className={style.wrapper}>
         <img
+          alt="s"
           className={style.img}
           src="https://images.pexels.com/photos/1643773/pexels-photo-1643773.jpeg?auto=compress&cs=tinysrgb&w=600"
         />
@@ -31,7 +32,10 @@ const SinglePost = () => {
         </h1>
         <div className={style.info}>
           <span className={style.infoAuthor}>
-            Author : <b>{post.userName}</b>
+            Author :
+            <Link className="link" to={`/?user=${post.userName}`}>
+              <b>{post.userName}</b>
+            </Link>
           </span>
           <span className={style.infoDate}>
             {new Date(post.createdAt).toDateString()}
