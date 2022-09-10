@@ -1,24 +1,12 @@
 import Post from "./Post/Post";
 import style from "./Posts.module.css";
 
-const Posts = () => {
+const Posts = ({ posts }) => {
   return (
     <div className={style.posts}>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {posts.map((post) => (
+        <Post post={post} />
+      ))}
     </div>
   );
 };
