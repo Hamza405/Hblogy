@@ -10,7 +10,7 @@ import SinglePostPage from "./pages/SinglePostPage/SinglePostPage";
 import WritePage from "./pages/WritePage/WritePage";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import LoginPage from "./pages/Auth/LoginPage";
-import SignupPage from "./pages/Auth/SignupPage";
+import SignUpPage from "./pages/Auth/SignUpPage";
 
 const App = () => {
   const user = false;
@@ -25,7 +25,7 @@ const App = () => {
         />
         <Route
           path="/signup"
-          element={user ? <Navigate to="/" /> : <SignupPage />}
+          element={user ? <Navigate to="/" /> : <SignUpPage />}
         />
         <Route
           path="/settings"
