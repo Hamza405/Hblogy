@@ -5,6 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import axios from "axios";
 import TopBar from "./components/TopBar/TopBar";
 import HomePage from "./pages/HomePage/HomePage";
 import SinglePostPage from "./pages/SinglePostPage/SinglePostPage";
@@ -15,7 +16,8 @@ import SignUpPage from "./pages/Auth/SignUpPage";
 import AuthContext from "./store/AuthContext";
 
 const App = () => {
-  const { user } = useContext(AuthContext);
+  axios.defaults.baseURL = "http://localhost:5000/api/";
+  const { isAuth } = useContext(AuthContext);
   return (
     <Router>
       <TopBar />
@@ -23,19 +25,19 @@ const App = () => {
         <Route path="/" exact element={<HomePage />} />
         <Route
           path="/login"
-          element={user ? <Navigate to="/" /> : <LoginPage />}
+          element={isAuth ? <Navigate to="/" /> : <LoginPage />}
         />
         <Route
           path="/signup"
-          element={user ? <Navigate to="/" /> : <SignUpPage />}
+          element={isAuth ? <Navigate to="/" /> : <SignUpPage />}
         />
         <Route
           path="/settings"
-          element={user ? <SettingsPage /> : <Navigate to="/login" />}
+          element={isAuth ? <SettingsPage /> : <Navigate to="/login" />}
         />
         <Route
           path="/write"
-          element={user ? <WritePage /> : <Navigate to="/login" />}
+          element={isAuth ? <WritePage /> : <Navigate to="/login" />}
         />
         <Route path="/post/:postId" element={<SinglePostPage />} />
       </Routes>

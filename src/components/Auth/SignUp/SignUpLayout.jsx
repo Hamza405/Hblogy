@@ -27,7 +27,7 @@ const SignUpLayout = () => {
     }
     try {
       dispatch({ type: "LOGIN_START" });
-      const res = await axios.post("http://localhost:5000/api/register", {
+      const res = await axios.post("/register", {
         userName,
         email,
         password,

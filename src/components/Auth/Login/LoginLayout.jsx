@@ -21,7 +21,7 @@ const LoginLayout = () => {
     }
     try {
       dispatch({ type: "LOGIN_START" });
-      const res = await axios.post("http://localhost:5000/api/login", {
+      const res = await axios.post("/login", {
         userName: email,
         password: password,
       });
