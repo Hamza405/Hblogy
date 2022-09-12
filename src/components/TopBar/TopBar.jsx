@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../store/AuthContext";
 import style from "./TopBar.module.css";
 
 const TopBar = () => {
-  const user = false;
+  const { user } = useContext(AuthContext);
   return (
     <div className={style.topBar}>
       <div className={style.topLeft}>

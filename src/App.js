@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,9 +12,10 @@ import WritePage from "./pages/WritePage/WritePage";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import LoginPage from "./pages/Auth/LoginPage";
 import SignUpPage from "./pages/Auth/SignUpPage";
+import AuthContext from "./store/AuthContext";
 
 const App = () => {
-  const user = false;
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <TopBar />
