@@ -32,6 +32,14 @@ const AuthReducer = (state, action) => {
       error: action.payload,
     };
   }
+  if (action.type === "LOGOUT") {
+    return {
+      user: null,
+      isAuth: false,
+      loading: false,
+      error: null,
+    };
+  }
   return initState;
 };
 

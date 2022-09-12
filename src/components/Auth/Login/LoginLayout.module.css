@@ -50,6 +50,11 @@
   color: white;
 }
 
+.button:disabled {
+  cursor: none;
+  background-color: grey;
+}
+
 .SButton {
   cursor: pointer;
   padding: 1rem 2rem;

@@ -4,7 +4,10 @@ import AuthContext from "../../store/AuthContext";
 import style from "./TopBar.module.css";
 
 const TopBar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+  const logoutHandler = () => {
+    dispatch({ type: "LOGOUT" });
+  };
   return (
     <div className={style.topBar}>
       <div className={style.topLeft}>
@@ -35,7 +38,9 @@ const TopBar = () => {
               Write
             </Link>
           </li>
-          <li className={style.topListItem}>{user && "LOGOUT"}</li>
+          <li onClick={logoutHandler} className={style.topListItem}>
+            {user && "LOGOUT"}
+          </li>
         </ul>
       </div>
       <div className={style.topRight}>

@@ -65,7 +65,9 @@ const SignUpLayout = () => {
           placeholder="Enter your password"
         />
         {error && <span className={style.error}>{error.error}</span>}
-        <button className={style.button}>SignUp</button>
+        <button className={style.button} disabled={loading}>
+          SignUp
+        </button>
       </form>
       <button className={style.LButton}>
         <Link className="link" to="/login">
