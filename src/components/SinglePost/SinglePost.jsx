@@ -1,12 +1,26 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import style from "./SinglePost.module.css";
+import AuthContext from "../../store/AuthContext";
 
 const SinglePost = () => {
+  const navigate = useNavigate();
   const path = "http://localhost:5000/images/";
+  const { user } = useContext(AuthContext);
   const postId = useLocation().pathname.split("/")[2];
   const [post, setPost] = useState({});
+
+  const deletePostHandler = async () => {
+    try {
+      await axios.delete("/posts/" + post._id, {
+        data: { userName: user.userName },
+      });
+      navigate("/", { replace: true });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -30,10 +44,15 @@ const SinglePost = () => {
         />
         <h1 className={style.title}>
           {post.title}
-          <div className={style.edit}>
-            <i className="editIcon far fa-edit" />
-            <i className="editIcon far fa-trash-alt" />
-          </div>
+          {user?.userName === post.userName && (
+            <div className={style.edit}>
+              <i className={`${style.editIcon} far fa-edit`} />
+              <i
+                className={`${style.editIcon} far fa-trash-alt`}
+                onClick={deletePostHandler}
+              />
+            </div>
+          )}
         </h1>
         <div className={style.info}>
           <span className={style.infoAuthor}>

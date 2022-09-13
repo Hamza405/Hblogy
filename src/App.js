@@ -17,7 +17,7 @@ import AuthContext from "./store/AuthContext";
 
 const App = () => {
   axios.defaults.baseURL = "http://localhost:5000/api/";
-  const { isAuth } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <TopBar />
@@ -25,19 +25,19 @@ const App = () => {
         <Route path="/" exact element={<HomePage />} />
         <Route
           path="/login"
-          element={isAuth ? <Navigate to="/" /> : <LoginPage />}
+          element={user ? <Navigate to="/" /> : <LoginPage />}
         />
         <Route
           path="/signup"
-          element={isAuth ? <Navigate to="/" /> : <SignUpPage />}
+          element={user ? <Navigate to="/" /> : <SignUpPage />}
         />
         <Route
           path="/settings"
-          element={isAuth ? <SettingsPage /> : <Navigate to="/login" />}
+          element={user ? <SettingsPage /> : <Navigate to="/login" />}
         />
         <Route
           path="/write"
-          element={isAuth ? <WritePage /> : <Navigate to="/login" />}
+          element={user ? <WritePage /> : <Navigate to="/login" />}
         />
         <Route path="/post/:postId" element={<SinglePostPage />} />
       </Routes>
