@@ -4,6 +4,7 @@ import axios from "axios";
 import style from "./SinglePost.module.css";
 
 const SinglePost = () => {
+  const path = "http://localhost:5000/images/";
   const postId = useLocation().pathname.split("/")[2];
   const [post, setPost] = useState({});
 
@@ -21,7 +22,11 @@ const SinglePost = () => {
         <img
           alt="s"
           className={style.img}
-          src="https://images.pexels.com/photos/1643773/pexels-photo-1643773.jpeg?auto=compress&cs=tinysrgb&w=600"
+          src={
+            post.photo
+              ? path + post.photo
+              : "https://images.wallpaperscraft.com/image/single/books_vintage_paper_cards_notebook_retro_74362_300x168.jpg"
+          }
         />
         <h1 className={style.title}>
           {post.title}
