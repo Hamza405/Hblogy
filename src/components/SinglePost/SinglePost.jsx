@@ -10,6 +10,9 @@ const SinglePost = () => {
   const { user } = useContext(AuthContext);
   const postId = useLocation().pathname.split("/")[2];
   const [post, setPost] = useState({});
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [updateMode, setUpdateMode] = useState(false);
 
   const deletePostHandler = async () => {
     try {
@@ -22,10 +25,25 @@ const SinglePost = () => {
     }
   };
 
+  const updatePostHandler = async () => {
+    try {
+      await axios.put("/posts/" + post._id, {
+        userName: user.userName,
+        title,
+        description,
+      });
+      setUpdateMode(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     const fetchPost = async () => {
       const res = await axios.get(`/posts/${postId}`);
       setPost(res.data);
+      setTitle(res.data.title);
+      setDescription(res.data.description);
     };
     fetchPost();
   }, [postId]);
@@ -42,18 +60,32 @@ const SinglePost = () => {
               : "https://images.wallpaperscraft.com/image/single/books_vintage_paper_cards_notebook_retro_74362_300x168.jpg"
           }
         />
-        <h1 className={style.title}>
-          {post.title}
-          {user?.userName === post.userName && (
-            <div className={style.edit}>
-              <i className={`${style.editIcon} far fa-edit`} />
-              <i
-                className={`${style.editIcon} far fa-trash-alt`}
-                onClick={deletePostHandler}
-              />
-            </div>
-          )}
-        </h1>
+        {updateMode ? (
+          <input
+            type="text"
+            autoFocus
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            className={style.titleInput}
+          />
+        ) : (
+          <h1 className={style.title}>
+            {title}
+            {user?.userName === post.userName && (
+              <div className={style.edit}>
+                <i
+                  className={`${style.editIcon} far fa-edit`}
+                  onClick={() => setUpdateMode(true)}
+                />
+                <i
+                  className={`${style.editIcon} far fa-trash-alt`}
+                  onClick={deletePostHandler}
+                />
+              </div>
+            )}
+          </h1>
+        )}
+
         <div className={style.info}>
           <span className={style.infoAuthor}>
             Author :
@@ -65,7 +97,20 @@ const SinglePost = () => {
             {new Date(post.createdAt).toDateString()}
           </span>
         </div>
-        <p className={style.description}>{post.description}</p>
+        {updateMode ? (
+          <textarea
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            className={style.descriptionInput}
+          />
+        ) : (
+          <p className={style.description}>{description}</p>
+        )}
+        {updateMode && (
+          <button className={style.updateButton} onClick={updatePostHandler}>
+            Update
+          </button>
+        )}
       </div>
     </div>
   );
