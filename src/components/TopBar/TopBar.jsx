@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 import style from "./TopBar.module.css";
 
+const path = "http://localhost:5000/images/";
+
 const TopBar = () => {
   const { user, dispatch } = useContext(AuthContext);
   const logoutHandler = () => {
@@ -47,7 +49,11 @@ const TopBar = () => {
         {user ? (
           <Link className="link" to="settings">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW73V4EqTE35_guM_QU9WJMVHKqwH6sCK3xPUPTk6IdA&s"
+              src={
+                user.profilePicture
+                  ? `${path}${user.profilePicture}`
+                  : "https://cdn4.vectorstock.com/i/thumb-large/98/38/person-gray-photo-placeholder-woman-vector-23519838.jpg"
+              }
               alt="image"
               className={style.topImage}
             />
