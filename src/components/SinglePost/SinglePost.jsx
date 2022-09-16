@@ -16,9 +16,17 @@ const SinglePost = () => {
 
   const deletePostHandler = async () => {
     try {
-      await axios.delete("/posts/" + post._id, {
-        data: { userName: user.userName },
-      });
+      await axios.delete(
+        "/posts/" + post._id,
+        {
+          data: { userName: user.userName },
+        },
+        {
+          headers: {
+            authorization: "Bearer " + user.token,
+          },
+        }
+      );
       navigate("/", { replace: true });
     } catch (err) {
       console.log(err);
@@ -27,11 +35,19 @@ const SinglePost = () => {
 
   const updatePostHandler = async () => {
     try {
-      await axios.put("/posts/" + post._id, {
-        userName: user.userName,
-        title,
-        description,
-      });
+      await axios.put(
+        "/posts/" + post._id,
+        {
+          userName: user.userName,
+          title,
+          description,
+        },
+        {
+          headers: {
+            authorization: "Bearer " + user.token,
+          },
+        }
+      );
       setUpdateMode(false);
     } catch (err) {
       console.log(err);

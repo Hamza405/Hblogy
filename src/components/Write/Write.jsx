@@ -31,7 +31,11 @@ const Write = () => {
       }
     }
     try {
-      const res = await axios.post("/posts", post);
+      const res = await axios.post("/posts", post, {
+        headers: {
+          authorization: "Bearer " + user.token,
+        },
+      });
       navigate(`/post/${res.data._id}`, { replace: true });
     } catch (err) {
       console.log(err);

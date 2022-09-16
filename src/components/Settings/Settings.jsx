@@ -42,7 +42,11 @@ const Settings = () => {
       }
     }
     try {
-      await axios.put(`/users/${user._id}`, updatedUser);
+      await axios.put(`/users/${user._id}`, updatedUser, {
+        headers: {
+          authorization: "Bearer " + user.token,
+        },
+      });
       navigate(`/settings`, { replace: true });
     } catch (err) {
       console.log(err);
