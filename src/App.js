@@ -18,6 +18,7 @@ import AuthContext from "./store/AuthContext";
 const App = () => {
   axios.defaults.baseURL = "http://localhost:5000/api/";
   const { user } = useContext(AuthContext);
+
   return (
     <Router>
       <TopBar />

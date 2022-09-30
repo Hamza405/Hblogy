@@ -16,6 +16,7 @@ const Settings = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setUserName(user.userName);
@@ -24,12 +25,17 @@ const Settings = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
+    setError(null);
     const updatedUser = {
       userId: user._id,
       userName,
       email,
       password,
     };
+    if (password.length === 0) {
+      setError("Should enter your password or new password");
+      return;
+    }
     if (file) {
       const data = new FormData();
       const fileName = Date.now() + file.name;
@@ -98,10 +104,12 @@ const Settings = () => {
         />
         <label>Password</label>
         <input
+          style={{ borderColor: error && "red" }}
           type="Password"
           placeholder="Ha1@."
           onChange={(e) => setPassword(e.target.value)}
         />
+        {error && <p className={style.error}>{error}</p>}
         <button className={style.submit} type="submit">
           Update
         </button>

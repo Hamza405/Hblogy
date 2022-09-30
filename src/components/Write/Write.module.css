@@ -63,3 +63,15 @@
   border-radius: 1rem;
   cursor: pointer;
 }
+
+.catLabel {
+  font-size: 2rem;
+}
+
+.cat {
+  border: none;
+  margin: 0 3rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border-bottom: 1px solid gray;
+}

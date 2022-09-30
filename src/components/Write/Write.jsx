@@ -4,12 +4,15 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 import style from "./Write.module.css";
 
-const Write = () => {
+const none = "None";
+
+const Write = ({ categories }) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState(null);
+  const [postCat, setPostCat] = useState(none);
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -17,6 +20,7 @@ const Write = () => {
       userName: user.userName,
       title,
       description,
+      categories: postCat === [] ? null : [postCat],
     };
     if (photo) {
       const data = new FormData();
@@ -56,6 +60,7 @@ const Write = () => {
             type="file"
             style={{ display: "none" }}
           />
+
           <input
             onChange={(event) => setTitle(event.target.value)}
             type="text"
@@ -63,6 +68,24 @@ const Write = () => {
             autoFocus={true}
             className={style.writeInput}
           />
+          <label className={style.catLabel} htmlFor="cat">
+            Category :
+          </label>
+          <select
+            value={postCat}
+            onChange={(i) => setPostCat(i.target.value)}
+            className={style.cat}
+            id="cat"
+          >
+            <option id={none} value={none} key={none}>
+              None
+            </option>
+            {categories.map((cat) => (
+              <option key={cat.key} id={cat.id} value={cat.name}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className={style.writeFormGroup}>
           <textarea

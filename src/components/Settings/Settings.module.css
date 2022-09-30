@@ -80,3 +80,8 @@
   color: white;
   background-color: teal;
 }
+
+.error {
+  color: red;
+  font-size: 1.1rem;
+}
