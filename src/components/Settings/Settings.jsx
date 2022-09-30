@@ -4,6 +4,7 @@ import axios from "axios";
 import AuthContext from "../../store/AuthContext";
 import style from "./Settings.module.css";
 import { useEffect } from "react";
+import personImage from "../../assets/images/person.jpg";
 
 const path = "http://localhost:5000/images/";
 
@@ -68,7 +69,7 @@ const Settings = () => {
                 ? URL.createObjectURL(file)
                 : user.profilePicture
                 ? `${path}${user.profilePicture}`
-                : "https://cdn4.vectorstock.com/i/thumb-large/98/38/person-gray-photo-placeholder-woman-vector-23519838.jpg"
+                : personImage
             }
             alt="image"
             className={style.topImage}

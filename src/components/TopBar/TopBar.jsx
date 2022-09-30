@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 import style from "./TopBar.module.css";
+import personImage from "../../assets/images/person.jpg";
 
 const path = "http://localhost:5000/images/";
 
@@ -52,9 +53,9 @@ const TopBar = () => {
               src={
                 user.profilePicture
                   ? `${path}${user.profilePicture}`
-                  : "https://cdn4.vectorstock.com/i/thumb-large/98/38/person-gray-photo-placeholder-woman-vector-23519838.jpg"
+                  : personImage
               }
-              alt="image"
+              alt="Image"
               className={style.topImage}
             />
           </Link>
