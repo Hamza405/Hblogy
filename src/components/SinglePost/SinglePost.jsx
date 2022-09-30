@@ -12,6 +12,7 @@ const SinglePost = () => {
   const [post, setPost] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [postCats, setPostCats] = useState([]);
   const [updateMode, setUpdateMode] = useState(false);
 
   const deletePostHandler = async () => {
@@ -60,6 +61,7 @@ const SinglePost = () => {
       setPost(res.data);
       setTitle(res.data.title);
       setDescription(res.data.description);
+      setPostCats(res.data.categories);
     };
     fetchPost();
   }, [postId]);
@@ -112,6 +114,11 @@ const SinglePost = () => {
           <span className={style.infoDate}>
             {new Date(post.createdAt).toDateString()}
           </span>
+        </div>
+        <div className={style.postCat}>
+          {postCats.map((cat) => (
+            <span key={cat}>{cat}</span>
+          ))}
         </div>
         {updateMode ? (
           <textarea
