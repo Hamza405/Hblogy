@@ -17,17 +17,11 @@ const SinglePost = () => {
 
   const deletePostHandler = async () => {
     try {
-      await axios.delete(
-        "/posts/" + post._id,
-        {
-          data: { userName: user.userName },
+      await axios.delete(`/posts/${postId}`, {
+        headers: {
+          authorization: "Bearer " + user.token,
         },
-        {
-          headers: {
-            authorization: "Bearer " + user.token,
-          },
-        }
-      );
+      });
       navigate("/", { replace: true });
     } catch (err) {
       console.log(err);
@@ -62,6 +56,7 @@ const SinglePost = () => {
       setTitle(res.data.title);
       setDescription(res.data.description);
       setPostCats(res.data.categories);
+      console.log(res.data);
     };
     fetchPost();
   }, [postId]);
@@ -115,6 +110,7 @@ const SinglePost = () => {
             {new Date(post.createdAt).toDateString()}
           </span>
         </div>
+
         <div className={style.postCat}>
           {postCats.map((cat) => (
             <span key={cat}>{cat}</span>

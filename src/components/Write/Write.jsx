@@ -1,6 +1,8 @@
-import axios from "axios";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { storage } from "../../services/firebase";
 import AuthContext from "../../store/AuthContext";
 import style from "./Write.module.css";
 
@@ -23,16 +25,34 @@ const Write = ({ categories }) => {
       categories: postCat === [] ? null : [postCat],
     };
     if (photo) {
-      const data = new FormData();
-      const fileName = Date.now() + photo.name;
-      data.append("name", fileName);
-      data.append("file", photo);
-      post.photo = fileName;
+      const photoName = Date.now() + photo.name;
+      // Uploaded image to storage and get it's url
       try {
-        await axios.post("/upload", data);
+        const storageRef = ref(storage, `/hblogy/postsImages/${photoName}`);
+        const uploadedPhoto = await uploadBytesResumable(storageRef, photo);
+        const photoUrl = await getDownloadURL(uploadedPhoto.ref);
+        post.photo = photoUrl;
       } catch (err) {
         console.log(err);
       }
+      // UPLOAD TO NODE SERVER
+      // const finalRes = await axios.put(s3URL, {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      //   data: photo,
+      // });
+      // console.log(finalRes);
+      // const data = new FormData();
+      // const fileName = Date.now() + photo.name;
+      // data.append("name", fileName);
+      // data.append("file", photo);
+      // post.photo = fileName;
+      // try {
+      //   await axios.post("/upload", data);
+      // } catch (err) {
+      //   console.log(err);
+      // }
     }
     try {
       const res = await axios.post("/posts", post, {
@@ -81,7 +101,7 @@ const Write = ({ categories }) => {
               None
             </option>
             {categories.map((cat) => (
-              <option key={cat.key} id={cat.id} value={cat.name}>
+              <option key={cat.id} id={cat.id} value={cat.name}>
                 {cat.name}
               </option>
             ))}

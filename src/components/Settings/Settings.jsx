@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { storage } from "../../services/firebase";
 import AuthContext from "../../store/AuthContext";
 import style from "./Settings.module.css";
 import { useEffect } from "react";
@@ -37,16 +39,27 @@ const Settings = () => {
       return;
     }
     if (file) {
-      const data = new FormData();
-      const fileName = Date.now() + file.name;
-      data.append("name", fileName);
-      data.append("file", file);
-      updatedUser.profilePicture = fileName;
+      const photoName = Date.now() + file.name;
+      // Uploaded image to storage and get it's url
       try {
-        await axios.post("/upload", data);
+        const storageRef = ref(storage, `/hblogy/postsImages/${photoName}`);
+        const uploadedPhoto = await uploadBytesResumable(storageRef, file);
+        const photoUrl = await getDownloadURL(uploadedPhoto.ref);
+        updatedUser.profilePicture = photoUrl;
       } catch (err) {
         console.log(err);
       }
+      // Upload to node server
+      // const data = new FormData();
+      // const fileName = Date.now() + file.name;
+      // data.append("name", fileName);
+      // data.append("file", file);
+      // updatedUser.profilePicture = fileName;
+      // try {
+      //   await axios.post("/upload", data);
+      // } catch (err) {
+      //   console.log(err);
+      // }
     }
     try {
       await axios.put(`/users/${user._id}`, updatedUser, {
